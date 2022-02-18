@@ -1,0 +1,19 @@
+= form_for @wallet do |f|
+  - if @wallet.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@wallet.errors.count, "error")} prohibited this wallet from being saved:"
+      %ul
+        - @wallet.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :on_chain_properties
+    = f.text_field :on_chain_properties
+  .field
+    = f.label :address
+    = f.text_field :address
+  .field
+    = f.label :name
+    = f.text_field :name
+  .actions
+    = f.submit 'Save'

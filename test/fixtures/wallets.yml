@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  on_chain_properties: 
+  address: MyString
+  name: MyString
+
+two:
+  on_chain_properties: 
+  address: MyString
+  name: MyString

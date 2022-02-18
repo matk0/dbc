@@ -1,13 +1,13 @@
-%h1 Listing wallets
+%h1 Wallets
 
-%table
+%table.table
   %thead
     %tr
-      %th Name
-      %th Address
-      %th
-      %th
-      %th
+      %th{:scope => "col"} Name
+      %th{:scope => "col"} Address
+      %th{:scope => "col"}
+      %th{:scope => "col"}
+      %th{:scope => "col"}
 
   %tbody
     - @wallets.each do |wallet|

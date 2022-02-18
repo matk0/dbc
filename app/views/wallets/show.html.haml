@@ -12,6 +12,10 @@
   %b Balance:
   = wallets_balance.to_s + " ETH"
 
+%p
+  %b Transactions
+  = wallets_transactions
+
 = link_to 'Edit', edit_wallet_path(@wallet)
 \|
 = link_to 'Back', wallets_path

@@ -17,6 +17,22 @@ module Etherscan
         )
       end
 
+      def get_transactions address:
+        request(
+          http_method: :get,
+          endpoint: "api",
+          params: { module: "account",
+                    action: "txlist",
+                    address: address,
+                    startblock: 0,
+                    endblock: 99999999,
+                    page: 1,
+                    offset: 10,
+                    sort: 10,
+                    apikey: Rails.application.credentials.etherscan[:api_key_token]}
+        )
+      end
+
       private
 
       def client

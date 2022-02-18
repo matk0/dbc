@@ -3,9 +3,8 @@
 %table
   %thead
     %tr
-      %th On chain properties
-      %th Address
       %th Name
+      %th Address
       %th
       %th
       %th
@@ -13,9 +12,8 @@
   %tbody
     - @wallets.each do |wallet|
       %tr
-        %td= wallet.on_chain_properties
-        %td= wallet.address
         %td= wallet.name
+        %td= wallet.address
         %td= link_to 'Show', wallet
         %td= link_to 'Edit', edit_wallet_path(wallet)
         %td= link_to 'Destroy', wallet, method: :delete, data: { confirm: 'Are you sure?' }

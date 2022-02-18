@@ -1,14 +1,12 @@
 %p#notice= notice
 
 %p
-  %b On chain properties:
-  = @wallet.on_chain_properties
+  %b Name:
+  = @wallet.name
+
 %p
   %b Address:
   = @wallet.address
-%p
-  %b Name:
-  = @wallet.name
 
 = link_to 'Edit', edit_wallet_path(@wallet)
 \|

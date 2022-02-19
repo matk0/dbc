@@ -1,0 +1,7 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  on_chain_attrs: 
+
+two:
+  on_chain_attrs: 

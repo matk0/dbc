@@ -82,6 +82,7 @@ GEM
       xpath (~> 3.2)
     childprocess (4.1.0)
     concurrent-ruby (1.1.9)
+    connection_pool (2.2.5)
     crass (1.0.6)
     draper (4.0.2)
       actionpack (>= 5.0)
@@ -180,6 +181,7 @@ GEM
     rb-fsevent (0.11.1)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    redis (4.6.0)
     regexp_parser (2.2.1)
     request_store (1.5.1)
       rack (>= 1.4)
@@ -204,6 +206,10 @@ GEM
       rubyzip (>= 1.2.2)
     semantic_range (3.0.0)
     sexp_processor (4.16.0)
+    sidekiq (6.4.1)
+      connection_pool (>= 2.2.2)
+      rack (~> 2.0)
+      redis (>= 4.2.0)
     spring (3.1.1)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
@@ -258,8 +264,10 @@ DEPENDENCIES
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.4, >= 6.1.4.6)
+  redis (~> 4.6)
   sass-rails (>= 6)
   selenium-webdriver
+  sidekiq (~> 6.4, >= 6.4.1)
   spring
   turbolinks (~> 5)
   tzinfo-data

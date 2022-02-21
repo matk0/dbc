@@ -5,6 +5,7 @@
     %tr
       %th{:scope => "col"} Name
       %th{:scope => "col"} Address
+      %th{:scope => "col"} Balance
       %th{:scope => "col"}
       %th{:scope => "col"}
       %th{:scope => "col"}
@@ -14,6 +15,7 @@
       %tr
         %td= wallet.name
         %td= wallet.address
+        %td= wallet.balance_in_eth
         %td= link_to 'Show', wallet
         %td= link_to 'Edit', edit_wallet_path(wallet)
         %td= link_to 'Destroy', wallet, method: :delete, data: { confirm: 'Are you sure?' }

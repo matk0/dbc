@@ -19,6 +19,7 @@ gem 'faraday', '~> 2.2'
 gem 'redis', '~> 4.6'
 gem 'draper', '~> 4.0', '>= 4.0.2'
 gem 'sidekiq', '~> 6.4', '>= 6.4.1'
+gem 'interactor', '~> 3.1', '>= 3.1.2'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

@@ -3,7 +3,7 @@ class WalletsController < ApplicationController
 
   # GET /wallets or /wallets.json
   def index
-    @wallets = Wallet.all
+    @wallets = Wallet.all.decorate
   end
 
   # GET /wallets/1 or /wallets/1.json
@@ -25,6 +25,7 @@ class WalletsController < ApplicationController
 
     respond_to do |format|
       if @wallet.save
+        Wallets::UpdateBalanceJob.perform_later address: @wallet.address
         format.html { redirect_to wallet_url(@wallet), notice: "Wallet was successfully created." }
         format.json { render :show, status: :created, location: @wallet }
       else
@@ -60,7 +61,7 @@ class WalletsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_wallet
-      @wallet = Wallet.find(params[:id])
+      @wallet = Wallet.find(params[:id]).decorate
     end
 
     # Only allow a list of trusted parameters through.

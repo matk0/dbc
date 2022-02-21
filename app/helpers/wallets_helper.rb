@@ -2,8 +2,7 @@ module WalletsHelper
   def wallets_transactions
 
     if @wallet.transactions.any?
-      table columns: ["from", "to"], rows: @wallet.transactions
-
+      table columns: ["from", "to"], rows: @wallet.transactions.map{|tx| [tx.on_chain_attrs["from"], tx.on_chain_attrs["to"]]}
     else
       "IN PROGRESS OR NO TRANSACTIONS"
     end

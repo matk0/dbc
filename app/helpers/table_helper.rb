@@ -1,7 +1,7 @@
 module TableHelper
   def table columns:, rows:
     content_tag :table do
-      thead(columns) + tbody
+      thead(columns) + tbody(rows)
     end
   end
 
@@ -15,21 +15,15 @@ module TableHelper
     end
   end
 
-      # content_tag :tr do
-      #   content_tag :th, "header col 1"
-      # end
-    # end
-  # end
-
-  def tbody
+  def tbody rows
     content_tag :tbody do
-      tr1 = content_tag :tr do
-        content_tag :td, "body col 1"
-      end
-      tr2 = content_tag :tr do
-        content_tag :td, "body col 1 row 2"
-      end
-      tr1 + tr2
+      safe_join(rows.collect do |row|
+        content_tag :tr do
+          safe_join(row.collect do |r|
+            content_tag :td, r
+          end)
+        end
+      end)
     end
   end
 end

@@ -1,11 +1,28 @@
 module WalletsHelper
   def wallets_transactions
-    client = Etherscan::V1::Client.new
-    txs = client.get_transactions(address: @wallet.address)["result"]
-    content_tag(:ul) do
-      txs.map do |tx|
-        concat content_tag(:li, tx["from"], class: "example")
-      end
+
+    if @wallet.transactions.any?
+      table columns: ["from", "to"], rows: @wallet.transactions
+
+    else
+      "IN PROGRESS OR NO TRANSACTIONS"
     end
+      # content_tag(:table, class: "table table-striped") do
+      #   content_tag(:tbody) do
+      #     concat @wallet.transactions.collect do |tx|
+      #       content_tag(:tr) do
+      #         content_tag(:td) do
+      #           "hello"
+      #         end
+      #       end
+      #     end
+      #   end
+      # end
+
+      #     concat content_tag(:a, href: transaction_path(tx))
+      #       content_tag(:li, tx.on_chain_attrs["from"]) do
+      #     end
+      #   end
+      # end
   end
 end

@@ -1,4 +1,4 @@
-class UpdateWalletsTransactions < ApplicationJob
+class Wallets::UpdateTransactionsJob < ApplicationJob
   queue_as :default
 
   def perform address:

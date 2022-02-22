@@ -1,6 +1,6 @@
 module TableHelper
   def table columns:, rows:
-    content_tag :table do
+    content_tag :table, class: "table table-striped" do
       thead(columns) + tbody(rows)
     end
   end

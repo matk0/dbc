@@ -1,4 +1,5 @@
 class WalletDecorator < Draper::Decorator
+  decorates_association :transactions
   delegate_all
 
   def balance_in_eth

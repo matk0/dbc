@@ -1,31 +1,27 @@
 class WalletsController < ApplicationController
   before_action :set_wallet, only: %i[ show edit update destroy ]
 
-  # GET /wallets or /wallets.json
   def index
     @wallets = Wallet.all.decorate
   end
 
-  # GET /wallets/1 or /wallets/1.json
   def show
   end
 
-  # GET /wallets/new
   def new
     @wallet = Wallet.new
   end
 
-  # GET /wallets/1/edit
   def edit
   end
 
-  # POST /wallets or /wallets.json
   def create
     @wallet = Wallet.new(wallet_params)
 
     respond_to do |format|
       if @wallet.save
         Wallets::UpdateBalanceJob.perform_later address: @wallet.address
+        Wallets::UpdateTransactionsJob.perform_later address: @wallet.address
         format.html { redirect_to wallet_url(@wallet), notice: "Wallet was successfully created." }
         format.json { render :show, status: :created, location: @wallet }
       else
@@ -35,7 +31,6 @@ class WalletsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /wallets/1 or /wallets/1.json
   def update
     respond_to do |format|
       if @wallet.update(wallet_params)

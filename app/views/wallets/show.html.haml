@@ -1,7 +1,6 @@
 %p#notice= notice
 
-%p
-  %b Name:
+%h1
   = @wallet.name
 
 %p
@@ -13,7 +12,7 @@
   = @wallet.balance_in_eth
 
 %p
-  %b Transactions
+  %h2 Transactions
   = wallets_transactions
 
 = link_to 'Edit', edit_wallet_path(@wallet)
